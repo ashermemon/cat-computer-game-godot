@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 # basics
-const SPRINT_SPEED = 14.5
+const SPRINT_SPEED = 13
 const WALK_SPEED = 7.0
 const JUMP_VELOCITY = 7.5
 const SENSITIVITY = 0.003
@@ -13,7 +13,7 @@ var bob_progress:float = 0.0
 
 # fov
 const BASE_FOV = 95.0
-const FOV_MULTIPLIER = 1.7
+const FOV_MULTIPLIER = 1.6
 
 # wall jump
 const WALL_JUMP_FORCE_UP = 4.0
@@ -37,7 +37,7 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 
-		head.rotate_y(-event.relative.x * SENSITIVITY)
+		rotate_y(-event.relative.x * SENSITIVITY)
 		
 
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
@@ -50,7 +50,7 @@ func _unhandled_input(event):
 
 func _physics_process(delta: float) -> void:
 	
-	character.rotation.y = head.rotation.y + character_start_rot.y
+
 	
 	# Add the gravity
 	
@@ -83,7 +83,8 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
-	var direction:Vector3 = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction:Vector3 = (global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
 	if is_on_floor():
 		last_wall = null
 		if direction:
