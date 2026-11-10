@@ -22,22 +22,36 @@ const WALL_JUMP_FORCE_AWAY = 8.0
 var speed:float = WALK_SPEED
 var last_wall = null
 
-
+var camera_start_pos: Vector3
+var character_start_rot: Vector3
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+@onready var character = $"character-gamer2"
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	camera_start_pos = camera.transform.origin
+	character_start_rot = character.rotation
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
+
 		head.rotate_y(-event.relative.x * SENSITIVITY)
+		
+
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-	
+		
+
+		var camera_rot = camera.rotation
+		camera_rot.x = clamp(camera_rot.x, deg_to_rad(-40), deg_to_rad(60))
+		camera.rotation = camera_rot
+		
 
 func _physics_process(delta: float) -> void:
+	
+	character.rotation.y = head.rotation.y + character_start_rot.y
+	
 	# Add the gravity
 	
 	if not is_on_floor():
@@ -82,7 +96,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, direction.x *speed, delta *3.0)
 		velocity.z = lerp(velocity.z, direction.z *speed, delta *3.0)
 	bob_progress += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(bob_progress);
+	camera.transform.origin = camera_start_pos + _headbob(bob_progress)
 	
 	
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2 )

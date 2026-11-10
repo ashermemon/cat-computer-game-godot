@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://k7xqykm4woa2"]
+
+[ext_resource type="PackedScene" uid="uid://djdj48rdc86ku" path="res://Assets/Models/KenneyArcade/air-hockey.glb" id="1_g5a20"]
+[ext_resource type="PackedScene" uid="uid://bkvdguwph8pka" path="res://Assets/Models/KenneyArcade/arcade-machine.glb" id="2_38uyi"]
+[ext_resource type="PackedScene" uid="uid://doup4a0334ijg" path="res://Assets/Models/KenneyArcade/basketball-game.glb" id="3_jygf0"]
+[ext_resource type="PackedScene" uid="uid://bdm5pilg4txwj" path="res://Assets/Models/KenneyArcade/cash-register.glb" id="4_ryv5w"]
+[ext_resource type="PackedScene" uid="uid://dvjlyuxto48fy" path="res://Assets/Models/KenneyArcade/character-employee.glb" id="5_glg8d"]
+[ext_resource type="PackedScene" uid="uid://jo3h33ni0ctm" path="res://Assets/Models/KenneyArcade/character-gamer.glb" id="6_4mq60"]
+[ext_resource type="PackedScene" uid="uid://djmsd25kygmex" path="res://Assets/Models/KenneyArcade/claw-machine.glb" id="7_u02i4"]
+[ext_resource type="PackedScene" uid="uid://p51503gtaave" path="res://Assets/Models/KenneyArcade/column.glb" id="8_rkejw"]
+[ext_resource type="PackedScene" uid="uid://c5d6njixbx2uk" path="res://Assets/Models/KenneyArcade/dance-machine.glb" id="9_8tkme"]
+[ext_resource type="PackedScene" uid="uid://c7bhk3kwsr6yh" path="res://Assets/Models/KenneyArcade/floor.glb" id="10_658bn"]
+[ext_resource type="PackedScene" uid="uid://bylcb82y7v8am" path="res://Assets/Models/KenneyArcade/gambling-machine.glb" id="11_d17i1"]
+[ext_resource type="PackedScene" uid="uid://dhnsxamjx6os" path="res://Assets/Models/KenneyArcade/pinball.glb" id="12_0bd87"]
+[ext_resource type="PackedScene" uid="uid://buq27vphsiech" path="res://Assets/Models/KenneyArcade/prize-wheel.glb" id="13_khnvu"]
+[ext_resource type="PackedScene" uid="uid://bue4soe6oeb72" path="res://Assets/Models/KenneyArcade/prizes.glb" id="14_ceiah"]
+[ext_resource type="PackedScene" uid="uid://b4fukrph3g5sf" path="res://Assets/Models/KenneyArcade/ticket-machine.glb" id="15_b7lvl"]
+[ext_resource type="PackedScene" uid="uid://cj2e2nfg503jr" path="res://Assets/Models/KenneyArcade/vending-machine.glb" id="16_pv6v3"]
+[ext_resource type="PackedScene" uid="uid://d1rp0xns2d8nx" path="res://Assets/Models/KenneyArcade/wall-corner.glb" id="17_6r5al"]
+[ext_resource type="PackedScene" uid="uid://dqnw2f5a5upjp" path="res://Assets/Models/KenneyArcade/wall-door-rotate.glb" id="18_515i1"]
+[ext_resource type="PackedScene" uid="uid://dgk3btxv0fogt" path="res://Assets/Models/KenneyArcade/wall-window.glb" id="19_t54wm"]
+[ext_resource type="PackedScene" uid="uid://q5dbr84do8in" path="res://Assets/Models/KenneyArcade/wall.glb" id="20_suf1n"]
+
+[node name="Tiles" type="Node3D" unique_id=178464197]
+
+[node name="air-hockey2" parent="." unique_id=402082494 instance=ExtResource("1_g5a20")]
+
+[node name="arcade-machine2" parent="." unique_id=263697547 instance=ExtResource("2_38uyi")]
+
+[node name="basketball-game2" parent="." unique_id=2083125910 instance=ExtResource("3_jygf0")]
+
+[node name="cash-register2" parent="." unique_id=2096419489 instance=ExtResource("4_ryv5w")]
+
+[node name="character-employee2" parent="." unique_id=1571930243 instance=ExtResource("5_glg8d")]
+
+[node name="character-gamer2" parent="." unique_id=1850696425 instance=ExtResource("6_4mq60")]
+
+[node name="claw-machine2" parent="." unique_id=1270013809 instance=ExtResource("7_u02i4")]
+
+[node name="column2" parent="." unique_id=1436327714 instance=ExtResource("8_rkejw")]
+
+[node name="dance-machine2" parent="." unique_id=1291820024 instance=ExtResource("9_8tkme")]
+
+[node name="floor2" parent="." unique_id=542007194 instance=ExtResource("10_658bn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.97, 0)
+
+[node name="gambling-machine2" parent="." unique_id=842929236 instance=ExtResource("11_d17i1")]
+
+[node name="pinball2" parent="." unique_id=336076607 instance=ExtResource("12_0bd87")]
+
+[node name="prize-wheel2" parent="." unique_id=676844104 instance=ExtResource("13_khnvu")]
+
+[node name="prizes2" parent="." unique_id=1885643942 instance=ExtResource("14_ceiah")]
+
+[node name="ticket-machine2" parent="." unique_id=304247841 instance=ExtResource("15_b7lvl")]
+
+[node name="vending-machine2" parent="." unique_id=340597040 instance=ExtResource("16_pv6v3")]
+
+[node name="wall-corner2" parent="." unique_id=1519846909 instance=ExtResource("17_6r5al")]
+
+[node name="wall-door-rotate2" parent="." unique_id=948888568 instance=ExtResource("18_515i1")]
+
+[node name="wall-window2" parent="." unique_id=1334568877 instance=ExtResource("19_t54wm")]
+
+[node name="wall2" parent="." unique_id=766962519 instance=ExtResource("20_suf1n")]
