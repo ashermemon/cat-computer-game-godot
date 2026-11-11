@@ -10,7 +10,7 @@ func _add_smart_collisions(node: Node):
 		var node_name = node.name.to_lower()
 		
 		# accurate for windows, doors, walls
-		if "wall" in node_name or "door" in node_name or "window" in node_name:
+		if "wall" in node_name or "door" in node_name or "window" in node_name or "dance-machine" in node_name or "pinball" in node_name or "air-hockey" in node_name or "cash-register" in node_name:
 			node.create_trimesh_collision()
 			
 		# optimized for everything else

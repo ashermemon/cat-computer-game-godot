@@ -33,6 +33,134 @@ volumetric_fog_sky_affect = 0.8
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0xm2m"]
 points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_272bh"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h2yge"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1bvp3"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lquwl"]
+animation = &"sprint"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7mycd"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_272bh"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4c57u"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"sprint"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_efxa6"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h2yge"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1bvp3"]
+xfade_time = 0.05
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lquwl"]
+xfade_time = 0.15
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7mycd"]
+xfade_time = 0.15
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5vw27"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kek77"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"sprint"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w48qg"]
+xfade_time = 0.25
+advance_mode = 2
+advance_condition = &"fall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yaehf"]
+xfade_time = 0.05
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_82xsv"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"fall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ryguw"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"fall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_074og"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ycdy4"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2cqfq"]
+xfade_time = 0.05
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cegan"]
+xfade_time = 0.05
+advance_mode = 2
+advance_condition = &"sprint"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_getpj"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"fall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vivmo"]
+xfade_time = 0.05
+advance_mode = 2
+advance_condition = &"sprint"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dg77c"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h2yge"]
+states/End/position = Vector2(897.5, 172.5)
+states/Start/position = Vector2(239.5, 178.5)
+states/fall/node = SubResource("AnimationNodeAnimation_272bh")
+states/fall/position = Vector2(876.7274, -40.690033)
+states/idle/node = SubResource("AnimationNodeAnimation_h2yge")
+states/idle/position = Vector2(436, 100.125)
+states/jump/node = SubResource("AnimationNodeAnimation_1bvp3")
+states/jump/position = Vector2(750, 92.9375)
+states/sprint/node = SubResource("AnimationNodeAnimation_lquwl")
+states/sprint/position = Vector2(756.5, 260.5)
+states/walk/node = SubResource("AnimationNodeAnimation_7mycd")
+states/walk/position = Vector2(381, 261.5)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_272bh"), "walk", "sprint", SubResource("AnimationNodeStateMachineTransition_4c57u"), "sprint", "walk", SubResource("AnimationNodeStateMachineTransition_efxa6"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_h2yge"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_1bvp3"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_lquwl"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_7mycd"), "sprint", "idle", SubResource("AnimationNodeStateMachineTransition_5vw27"), "idle", "sprint", SubResource("AnimationNodeStateMachineTransition_kek77"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_w48qg"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_yaehf"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_82xsv"), "walk", "fall", SubResource("AnimationNodeStateMachineTransition_ryguw"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_074og"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_ycdy4"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_2cqfq"), "fall", "sprint", SubResource("AnimationNodeStateMachineTransition_cegan"), "sprint", "fall", SubResource("AnimationNodeStateMachineTransition_getpj"), "jump", "sprint", SubResource("AnimationNodeStateMachineTransition_vivmo"), "sprint", "jump", SubResource("AnimationNodeStateMachineTransition_dg77c")]
+graph_offset = Vector2(-29.894884, 124.185)
+
 [node name="main" type="Node3D" unique_id=1247301996]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=135482463]
@@ -49,6 +177,13 @@ script = ExtResource("1_ig7tw")
 [node name="character-gamer2" parent="CharacterBody3D" unique_id=901364758 instance=ExtResource("2_h2yge")]
 transform = Transform3D(-2.8, 0, -4.2278825e-07, 0, 2.8, 0, 4.2278825e-07, 0, -2.8, 0, 0, 0.23107529)
 
+[node name="Skeleton3D" parent="CharacterBody3D/character-gamer2/character-gamer" parent_id_path=PackedInt32Array(901364758, 2095927375) index="0" unique_id=28409006]
+bones/1/rotation = Quaternion(-0.43379936, 0.43064412, 0.2486325, 0.7513625)
+bones/2/rotation = Quaternion(-0.33201572, -0.459413, -0.19029512, 0.80155677)
+bones/4/rotation = Quaternion(-0.060194418, 0.25051683, 0.22588065, 0.93946576)
+bones/5/rotation = Quaternion(-0.060194418, -0.25051683, -0.22588065, 0.93946576)
+bones/6/rotation = Quaternion(0.0030612017, 0, 0, 0.9999954)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=172884249]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 1.1230958, 0.25000095)
 shape = SubResource("ConvexPolygonShape3D_0xm2m")
@@ -57,7 +192,17 @@ shape = SubResource("ConvexPolygonShape3D_0xm2m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.355, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head" unique_id=146043694]
-transform = Transform3D(1.0219932, 0, 0, 0, 1.0219932, 0, 0, 0, 1.0219932, 0, 0, -0.33251762)
+transform = Transform3D(1.0219932, 0, 0, 0, 0.88507205, 0.5109965, 0, -0.5109965, 0.88507205, 0, 2.043986, 3.3017416)
+
+[node name="AnimationTree" type="AnimationTree" parent="CharacterBody3D" unique_id=612575189]
+root_node = NodePath("../character-gamer2")
+tree_root = SubResource("AnimationNodeStateMachine_h2yge")
+anim_player = NodePath("../character-gamer2/AnimationPlayer")
+parameters/conditions/fall = false
+parameters/conditions/idle = false
+parameters/conditions/jump = false
+parameters/conditions/sprint = false
+parameters/conditions/walk = false
 
 [node name="FloorMap" type="GridMap" parent="." unique_id=687843340]
 mesh_library = ExtResource("3_h2yge")
@@ -76,3 +221,5 @@ data = {
 "cells": PackedInt32Array(-65534, 65527, 17, -24, 65527, 1048593, -24, 19, 655377, -10, 19, 1441809, -65534, 5, 1441809, -65534, 65528, 1441812, -65534, 65529, 1441812, -65534, 65530, 1441812, -65534, 65531, 1441812, -65534, 65532, 1441812, -65534, 65533, 1441812, -65534, 65534, 1441812, -65534, 65535, 1441812, -65534, 0, 1441812, -65534, 1, 1441812, -65534, 2, 1441812, -65534, 3, 1441812, -65534, 4, 1441812, -24, 65528, 1048596, -24, 65529, 1048596, -24, 65530, 1048596, -24, 65531, 1048596, -24, 65532, 1048596, -24, 65533, 1048596, -24, 65534, 1048596, -24, 65535, 1048596, -24, 0, 1048596, -24, 1, 1048596, -24, 2, 1048596, -24, 3, 1048596, -24, 4, 1048596, -24, 5, 655377, -24, 7, 1441799, -24, 9, 1048596, -24, 10, 1048596, -24, 11, 1048596, -24, 12, 1048596, -24, 13, 1048596, -24, 14, 1048596, -24, 15, 1048596, -24, 16, 1048596, -24, 17, 1048596, -24, 18, 1048596, -65535, 65527, 20, -65536, 65527, 20, -1, 65527, 20, -23, 65527, 20, -22, 65527, 20, -21, 65527, 20, -20, 65527, 20, -19, 65527, 20, -18, 65527, 20, -17, 65527, 20, -16, 65527, 20, -15, 65527, 20, -14, 65527, 20, -13, 65527, 20, -12, 65527, 20, -11, 65527, 20, -10, 65527, 20, -9, 65527, 20, -8, 65527, 20, -7, 65527, 20, -6, 65527, 20, -5, 65527, 20, -4, 65527, 20, -3, 65527, 20, -2, 65527, 20, -23, 5, 655380, -22, 5, 655380, -21, 5, 655380, -20, 5, 655380, -19, 5, 655380, -18, 5, 655379, -17, 5, 655379, -16, 5, 655380, -15, 5, 655380, -14, 5, 655380, -13, 5, 655380, -12, 5, 655380, -11, 5, 655380, -10, 5, 655380, -8, 5, 655380, -7, 5, 655380, -6, 5, 655380, -5, 5, 655380, -4, 5, 655380, -3, 5, 655380, -2, 5, 655380, -1, 5, 655380, -65536, 5, 655380, -65535, 5, 655380, -23, 19, 655380, -22, 19, 655380, -21, 19, 655380, -20, 19, 655380, -19, 19, 655380, -18, 19, 655380, -17, 19, 655380, -16, 19, 655380, -15, 19, 655380, -14, 19, 655380, -13, 19, 655380, -12, 19, 655380, -11, 19, 655380, -10, 18, 1441812, -10, 17, 1441812, -10, 16, 1441812, -10, 15, 1441812, -10, 14, 1441812, -10, 13, 1441812, -10, 12, 1441812, -10, 11, 1441812, -10, 10, 1441812, -10, 9, 1441812, -10, 8, 1441812, -10, 7, 1441799, -9, 5, 655380, -24, 8, 1048596, -65535, 1, 1441806, -65535, 65530, 1441803, -65535, 65535, 1441802, -65535, 65534, 1441802, -5, 65528, 16, -4, 65528, 16, -21, 65528, 15, -20, 65528, 15, -15, 65528, 2, -14, 65528, 2, -13, 65528, 2, -10, 65528, 6, -8, 65528, 6, -9, 65528, 8, -1, 65528, 8, -22, 65528, 6, -65536, 1, 1441795, -65536, 2, 1441795, -65536, 3, 1441795, -65536, 4, 1441795, -65535, 2, 1441806, -65535, 3, 1441806, -65535, 4, 1441806, -8, 65533, 1441792, -10, 65533, 1441792, -12, 65533, 1441792, -18, 1, 1441792, -20, 1, 1441792, -17, 65531, 1441798, -17, 65533, 1441798, -19, 65531, 1441798, -19, 65533, 1441798, -21, 65531, 1441798, -21, 65533, 1441798, -17, 65535, 1441799, -4, 65532, 1441799, -7, 1, 1441799, -13, 65531, 1441799, -14, 65535, 655361, -13, 65535, 655361, -12, 65535, 655361, -12, 0, 1, -13, 0, 1, -14, 0, 1, -11, 0, 1048577, -11, 65535, 1048577, -15, 65535, 1441793, -15, 0, 1441793, -10, 3, 1441793, -5, 65535, 1441793, -5, 0, 1441793, -4, 0, 1441798, -4, 65535, 1441798, -9, 3, 1048584, -3, 65532, 1048586, -14, 65531, 1441802, -23, 0, 1048586, -23, 1, 1048586, -23, 2, 1048587, -23, 65535, 1048587, -10, 2, 1441793, -9, 2, 1048587, -6, 1, 1048587)
 }
 metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[editable path="CharacterBody3D/character-gamer2"]

@@ -19,6 +19,7 @@ const FOV_MULTIPLIER = 1.6
 const WALL_JUMP_FORCE_UP = 4.0
 const WALL_JUMP_FORCE_AWAY = 8.0
 
+
 var speed:float = WALK_SPEED
 var last_wall = null
 
@@ -27,7 +28,11 @@ var character_start_rot: Vector3
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+
 @onready var character = $"character-gamer2"
+@onready var anim_player = character.get_node("AnimationPlayer")
+@onready var anim_tree = $AnimationTree
+@onready var anim_state = anim_tree["parameters/playback"]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -40,7 +45,7 @@ func _unhandled_input(event):
 		rotate_y(-event.relative.x * SENSITIVITY)
 		
 
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
+		#camera.rotate_x(-event.relative.y * SENSITIVITY)
 		
 
 		var camera_rot = camera.rotation
@@ -70,6 +75,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = wall_normal.z * WALL_JUMP_FORCE_AWAY * bounce
 		velocity.y = WALL_JUMP_FORCE_UP
 		last_wall = wall_normal
+	
+
 		#move_and_slide()
 		#return
 
@@ -79,6 +86,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -86,14 +95,18 @@ func _physics_process(delta: float) -> void:
 	var direction:Vector3 = (global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 	if is_on_floor():
+	
 		last_wall = null
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
+	
 		else:
 			velocity.x = lerp(velocity.x, direction.x *speed, delta *8.0)
 			velocity.z = lerp(velocity.z, direction.z *speed, delta *8.0)
+			
 	else:
+		
 		velocity.x = lerp(velocity.x, direction.x *speed, delta *3.0)
 		velocity.z = lerp(velocity.z, direction.z *speed, delta *3.0)
 	bob_progress += delta * velocity.length() * float(is_on_floor())
@@ -103,7 +116,7 @@ func _physics_process(delta: float) -> void:
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2 )
 	var target_fov = BASE_FOV + FOV_MULTIPLIER * velocity_clamped
 	camera.fov =lerp(camera.fov, target_fov, delta * 6.0)
-
+	animation_updates(direction)
 	move_and_slide()
 	
 
@@ -113,4 +126,18 @@ func _headbob(prog) -> Vector3:
 	pos.x = cos(prog*BOB_FREQ/2)*BOB_AMP
 	
 	return pos
+	
+func animation_updates(direction):
+	if not is_zero_approx(velocity.y) and velocity.y > 0:
+		anim_state.travel("jump")
+	elif not is_on_floor() and not is_zero_approx(velocity.y) and velocity.y < 0:
+		anim_state.travel("fall")
+
+	elif direction:
+		if Input.is_action_pressed("sprint"):
+			anim_state.travel("sprint")
+		else:
+			anim_state.travel("walk")
+	else:
+		anim_state.travel("idle")
 	
